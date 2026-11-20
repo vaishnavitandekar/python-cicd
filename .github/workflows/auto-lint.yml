@@ -1,0 +1,19 @@
+name: Auto lint
+
+on:
+  push:
+    paths: "*.py"
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7
+
+      - name: Install lint
+        run: pip install ruff
+
+      - name: Check lint format
+        run: ruff check .
+      
